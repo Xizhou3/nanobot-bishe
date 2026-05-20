@@ -17,4 +17,4 @@ __pycache__/
 .thumbnails/
 
 # 如果你想忽略某些特定的大文件或者不想备份的文件夹，写在这里
-.nanobot/
+.nanobot/history/
