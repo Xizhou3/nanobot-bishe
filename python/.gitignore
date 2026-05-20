@@ -1,0 +1,23 @@
+# Python 虚拟环境 (绝不备份！)
+venv/
+env/
+.venv/
+
+# Python 缓存文件 (绝不备份！)
+__pycache__/
+*.pyc
+*.pyo
+
+# 系统垃圾文件 (绝不备份！)
+.DS_Store
+.Xauthority
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.config/
+.ssh/
+.wget-hsts
+
+# 敏感信息 (如果有API Key，不要推上去)
+.env

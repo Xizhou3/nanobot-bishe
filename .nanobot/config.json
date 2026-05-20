@@ -1,0 +1,67 @@
+{
+  "providers": {
+    "openai": {
+      "apiKey": "sk-42RB2gk9sldqZ8iDD4Dd404f84794254Ad7fC0E2Dc839d93",
+      "apiBase": "https://codingplan.alayanew.com/v1"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "provider": "openai",
+      "model": "minimax-m2.5",
+      "preamble": "你是一个亲切友好的智能阳台管家。当你收到用户打招呼（如\"你好\"、\"hello\"等）时，要像管家一样热情问候，例如：\"您好！我是您的智能阳台管家🌿 有什么需要帮助的吗😊\"。\n\n对于简单指令（开灯、关灯、开窗、关窗、浇水、手动控制、自动控制、控制模式），直接执行对应的命令并返回执行结果，不需要额外询问或回复。\n\n当用户说\"查看阳台情况\"时，读取 /tmp/balcony_status.json 文件获取阳台状态，用命令 python3 /home/pi/python/toggle_auto.py status 获取当前模式，并以美观的卡片式格式展示，参考格式：\n【🌿 阳台管家】\n━━━━━━━━━━━━\n📊 传感器数据\n• 温度：22.5°C\n• 湿度：73%\n• 光照：明亮\n• 土壤：湿润\n• 人体：有人\n━━━━━━━━━━━━\n💡 设备状态\n• 灯：关\n• 窗：关闭\n• 灌溉：关闭\n━━━━━━━━━━━━\n🌤️ 厦门天气\n• 今天：阴天 19~23°C\n• 明天：小雨 22~27°C\n━━━━━━━━━━━━\n💡 建议：土壤湿润无需浇水，明天有小雨建议关注窗户状态🌧️\n━━━━━━━━━━━━\n🔄 模式：自动\n\n每次响应时，先检查 /tmp/balcony_notify.txt 文件，如果有新的设备状态变化通知（以💡、🌙、🪟、💦开头的行），先显示这些通知给用户。\n\n你可以查看 /tmp/balcony_status.json 文件获取阳台状态，也可以通过执行命令来控制设备。获取厦门天气用命令：curl -s \"wttr.in/Xiamen?format=j1\" | python3 -c \"import json,sys;d=json.load(sys.stdin);w=d['weather'];print(w[0]['hourly'][4]['weatherDesc'][0]['value']+str(w[0]['maxtempC'])+'C'+str(w[0]['mintempC'])+'C')\"",
+      "temperature": 0.7,
+      "stream": false
+    }
+  },
+  "tools": {
+    "ssrf_whitelist": ["127.0.0.0/8"],
+    "commands": {
+      "查看阳台状态": {
+        "description": "获取阳台的温度、湿度、光照、土壤、设备状态等所有信息",
+        "command": "curl -s -X POST http://127.0.0.1:8000 -H 'Content-Type: application/json' -d '{\"tool\": \"get_system_status\", \"id\": 1}'"
+      },
+      "开灯": {
+        "description": "打开阳台的灯",
+        "command": "curl -s -X POST http://127.0.0.1:8000 -H 'Content-Type: application/json' -d '{\"tool\": \"turn_on_light\", \"id\": 1}'"
+      },
+      "关灯": {
+        "description": "关闭阳台的灯",
+        "command": "curl -s -X POST http://127.0.0.1:8000 -H 'Content-Type: application/json' -d '{\"tool\": \"turn_off_light\", \"id\": 1}'"
+      },
+      "开窗": {
+        "description": "打开阳台的窗户",
+        "command": "curl -s -X POST http://127.0.0.1:8000 -H 'Content-Type: application/json' -d '{\"tool\": \"open_window\", \"id\": 1}'"
+      },
+      "关窗": {
+        "description": "关闭阳台的窗户",
+        "command": "curl -s -X POST http://127.0.0.1:8000 -H 'Content-Type: application/json' -d '{\"tool\": \"close_window\", \"id\": 1}'"
+      },
+      "浇水": {
+        "description": "给阳台的盆栽浇水5秒",
+        "command": "curl -s -X POST http://127.0.0.1:8000 -H 'Content-Type: application/json' -d '{\"tool\": \"water_plant\", \"params\": {\"duration\": 5}, \"id\": 1}'"
+      },
+      "手动控制": {
+        "description": "切换到手动控制模式，关闭自动控制",
+        "command": "python3 /home/pi/python/toggle_auto.py off"
+      },
+      "自动控制": {
+        "description": "切换到自动控制模式，开启自动控制",
+        "command": "python3 /home/pi/python/toggle_auto.py on"
+      },
+      "控制模式": {
+        "description": "查看当前是自动还是手动控制模式",
+        "command": "python3 /home/pi/python/toggle_auto.py status"
+      }
+    }
+  },
+  "channels": {
+    "qq": {
+      "enabled": true,
+      "appId": "1903797084",
+      "secret": "LE82xtpmjhfeddefhjmptx27DJQXfnw5",
+      "allowFrom": ["8E5D0CC7224D5526ADD703774BCC5C97"],
+      "msgFormat": "plain"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# 忽略 SSH 密钥 (绝对重要)
+.ssh/
+
+# 忽略 python 虚拟环境 (如果有)
+venv/
+env/
+__pycache__/
+
+# 忽略 git 自身文件
+.git/
+
+# 忽略一些系统文件
+.bash_history
+.python_history
+.cache/
+.local/
+.thumbnails/
+
+# 如果你想忽略某些特定的大文件或者不想备份的文件夹，写在这里

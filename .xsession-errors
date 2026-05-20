@@ -1,0 +1,43 @@
+Xsession: X session started for pi at Wed  6 May 22:27:00 CST 2026
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+xrdb: Can't open display ''
+xhost:  unable to open display ""
+dbus-update-activation-environment: setting USER=pi
+dbus-update-activation-environment: setting TEXTDOMAIN=pam_chksshpwd
+dbus-update-activation-environment: setting XDG_SESSION_TYPE=wayland
+dbus-update-activation-environment: setting HOME=/home/pi
+dbus-update-activation-environment: setting DESKTOP_SESSION=rpd-labwc
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+dbus-update-activation-environment: setting LOGNAME=pi
+dbus-update-activation-environment: setting XDG_SESSION_CLASS=user
+dbus-update-activation-environment: setting PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+dbus-update-activation-environment: setting XDG_RUNTIME_DIR=/run/user/1000
+dbus-update-activation-environment: setting LANG=en_GB.UTF-8
+dbus-update-activation-environment: setting XDG_SESSION_DESKTOP=rpd-labwc
+dbus-update-activation-environment: setting XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/pi
+dbus-update-activation-environment: setting SHELL=/bin/bash
+dbus-update-activation-environment: setting GDMSESSION=rpd-labwc
+dbus-update-activation-environment: setting NO_AT_BRIDGE=1
+dbus-update-activation-environment: setting GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+dbus-update-activation-environment: setting PWD=/home/pi
+no profile matched
+pgrep: pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match agaipattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.nst the complete command line.
+
+Monitoring Wayland compositor socket: /run/user/1000/wayland-0
+Connected to Wayland compositor
+Waiting for Wayland compositor to close...
+
+(polkit-mate-authentication-agent-1:1709): GLib-CRITICAL **: 10:26:23.835: g_variant_new_string: assertion 'string != NULL' failed
+
+(polkit-mate-authentication-agent-1:1709): polkit-mate-1-WARNING **: 10:26:23.837: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+** Message: 10:26:27.462: batt: battery 0 not found
+** Message: 10:26:27.837: up: Checking for updates
+** Message: 10:26:47.337: up: Cache updated - comparing versions
+** Message: 10:26:53.628: up: Check complete - 159 updates available
+00:01:38.397 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+00:01:38.397 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+no profile matched
+no profile matched
+no profile matched
