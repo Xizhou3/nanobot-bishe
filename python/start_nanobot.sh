@@ -1,9 +1,7 @@
-#!/bin/bash
-# 启动 MCP 服务 + nanobot
+# 启动 MCP 服务和主程序
 
 # 杀掉旧的进程
 pkill -f "main_mcp.py" 2>/dev/null
-pkill -f "nanobot agent" 2>/dev/null
 sleep 1
 
 # 启动 MCP 服务
@@ -38,5 +36,3 @@ echo "请说「查看阳台情况」获取详细信息"
 echo "========================================"
 echo ""
 
-# 启动 nanobot
-exec /home/pi/venv/bin/nanobot agent
